@@ -1,0 +1,11 @@
+*.log
+*.tmproj
+.DS_Store
+*.sqlite3
+*.jpg
+*.pdf
+*.odt
+*.gif
+*.png
+*.doc
+database.yml
