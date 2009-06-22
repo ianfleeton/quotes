@@ -1,0 +1,24 @@
+<h1>Quotes</h1>
+
+<% unless @quotes.empty? -%>
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Recipient</th>
+      <th>Sent</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @quotes.each do |q| -%>
+    <tr>
+      <td><%= h q.subject %></td>
+      <td><%= h q.to %></td>
+      <td><%= h q.sent_at %></td>
+    </tr>
+  <% end -%>
+  </tbody>
+</table>
+<% else %>
+<p>No quotes have been sent yet.</p>
+<% end %>
