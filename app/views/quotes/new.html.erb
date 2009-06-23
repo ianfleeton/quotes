@@ -1,1 +1,32 @@
 <h1>New Quote</h1>
+
+<% form_tag :action => 'create' do %>
+  <input type="hidden" name="profile_id" value="<%= @profile.id %>" />
+  <p>
+    <label for="title">Title:</label><br />
+    <input type="text" id="title" name="title" value="<%= h @profile.subject %>" />
+  </p>
+  <p>
+    <label for="reference">Reference:</label><br />
+    <input type="text" id="reference" name="reference" />
+  </p>
+  <p>
+    <label for="to">Send email to:</label><br />
+    <input type="text" id="to" name="to" />
+  </p>
+  <p>
+    <label for="cc">Cc:</label><br />
+    <input type="text" id="cc" name="cc" />
+  </p>
+  <p>
+    <label for="introduction">Introduction:</label><br />
+    <textarea id="introduction" name="introduction"><%= h @profile.intro %></textarea>
+  </p>
+  <h2>Items to Include</h2>
+  <% @items.each do |item| %>
+  <p class="item_list">
+    <input type="text" name="items[<%= item.id %>]" value="0" /> <%= h item.name %> (£<%= item.price_in_pounds %>)<br />
+  </p>
+  <% end %>
+  <%= submit_tag "Preview" %>
+<% end %>

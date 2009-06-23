@@ -1,25 +1,31 @@
 body {
-  background: #B0B0B8;
   color: #333;
-  font-family: Verdana, sans-serif;
+  font-family:"Lucida Grande","Trebuchet MS",Verdana,Helvetica,Arial,sans-serif;
   padding-top: 16px;
 }
 
+p, td, textarea, th {
+  font-family:"Lucida Grande","Trebuchet MS",Verdana,Helvetica,Arial,sans-serif;
+  font-size: 14px;
+}
+
 #layout {
-  background: #fff;
   width: 640px;
-  padding: 8px;
-  border: 2px solid #666;
   margin-left: auto;
   margin-right: auto;
+}
+
+#logo {
+  text-align: center;
+  margin-bottom: 8px;
 }
 
 #nav { height: 24px; }
 #nav li a {
   display: block;
-  width: 96px;
-  font-size: 12px;
-  line-height: 20px;
+  width: 210px;
+  font-size: 13px;
+  line-height: 24px;
   text-decoration: none;
   text-align: center;
   margin-right: 2px;
@@ -35,5 +41,38 @@ body {
   float: left;
 }
 
+textarea {
+  width: 632px;
+  height: 200px;
+  padding: 4px;
+}
+
 table { border-collapse: collapse; border: 2px solid #000; }
-td, th { font-size: 11px; padding: 4px 4px; border: 3px solid #ccc; margin: 0; }
+td, th { font-size: 13px; padding: 4px 4px; border: 3px solid #ccc; margin: 0; }
+textarea#profile_html {
+  font-family: 'Anonymous Pro', 'Monaco', 'Courier', monospace;
+  font-size: 13px;
+  line-height: 16px;
+  color: #f9ef90;
+  background: #141414;
+  border: 0;
+  width: 632px;
+  height: 400px;
+}
+
+input[type=text] {
+  font-size: 14px;
+}
+label { font-weight: bold; font-size: 13px; }
+
+form p {
+  margin: 8px 0;
+}
+
+.item_list input {
+  width: 20px;
+}
+
+#buttons {
+  text-align: center;
+}

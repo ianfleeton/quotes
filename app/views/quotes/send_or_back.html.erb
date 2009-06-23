@@ -1,0 +1,19 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+  <title></title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+
+<form action="send.php" method="get" target="_top">
+	<input type="hidden" name="id" value="<?php echo $_GET['id']; ?>" />
+	<div id="buttons">
+	<input type="button" onclick="history.back()" value="Make Changes" />
+	<input type="submit" value="Send" />
+	</div>
+</form>
+
+</body>
+</html>
