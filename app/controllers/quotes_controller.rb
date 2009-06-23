@@ -39,11 +39,10 @@ class QuotesController < ApplicationController
     q = ''
 
     q += '<p><strong>' + @quote.title
-    q += '(Quotation number: ' + @quote.reference + ')</strong></p>'
+    q += ' (Quotation number: ' + @quote.reference + ')</strong></p>'
     q += "\n<table id=\"quote\">\n"
 	  q += "<tr><th class=\"qty\">Qty</th><th class=\"name\">Description</th>"
 	  q += "<th class=\"unitprice\">Unit Price</th><th class=\"amount\">Amount</th></tr>\n"
-    q += '</table>'
 
   	vat = @sub_total * (VAT_RATE.to_f / 100)
     
@@ -61,15 +60,18 @@ class QuotesController < ApplicationController
     body.gsub!('[introduction]', params[:introduction])
     body.gsub!('[details]', @details)
 
+    @quote.body = body
     @quote.save
     render :action => 'create', :layout => false
   end
 
   def send_or_back
+    @quote = Quote.find(params[:id])
     render :action => 'send_or_back', :layout => false
   end
 
   def preview
+    @quote = Quote.find(params[:id])
     render :action => 'preview', :layout => false
   end
   

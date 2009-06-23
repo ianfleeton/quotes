@@ -8,7 +8,7 @@
 <body>
 
 <form action="send.php" method="get" target="_top">
-	<input type="hidden" name="id" value="<?php echo $_GET['id']; ?>" />
+	<input type="hidden" name="id" value="<%= @quote.id %>" />
 	<div id="buttons">
 	<input type="button" onclick="history.back()" value="Make Changes" />
 	<input type="submit" value="Send" />
