@@ -14,9 +14,9 @@
   <tbody>
   <% @quotes.each do |q| -%>
     <tr>
-      <td><%= h q.subject %></td>
+      <td><%= h q.title %></td>
       <td><%= h q.to %></td>
-      <td><%= h q.sent3_at %></td>
+      <td><%= h q.sent_at %></td>
     </tr>
   <% end -%>
   </tbody>

@@ -2,7 +2,7 @@ class QuotesController < ApplicationController
   VAT_RATE = 15
   
   def index
-    @quotes = Quote.all :order => 'created_at DESC'
+    @quotes = Quote.all(:conditions => 'sent_at IS NOT NULL', :order => 'created_at DESC')
   end
   
   def new
@@ -73,6 +73,16 @@ class QuotesController < ApplicationController
   def preview
     @quote = Quote.find(params[:id])
     render :action => 'preview', :layout => false
+  end
+  
+  def send_quote
+    @quote = Quote.find(params[:id])
+    @profile = Profile.find(:first)
+    Emailer.deliver_quote(@quote, @profile.from)
+    @quote.sent_at = Time.now
+    @quote.save
+    flash[:notice] = 'Quote sent'
+    redirect_to :action => 'index'
   end
   
   private

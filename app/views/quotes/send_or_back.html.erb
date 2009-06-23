@@ -7,13 +7,13 @@
 </head>
 <body>
 
-<form action="send.php" method="get" target="_top">
+<% form_tag({:action => 'send_quote'}, :target => '_top') do %>
 	<input type="hidden" name="id" value="<%= @quote.id %>" />
 	<div id="buttons">
 	<input type="button" onclick="history.back()" value="Make Changes" />
-	<input type="submit" value="Send" />
+	<%= submit_tag 'Send' %>
 	</div>
-</form>
+<% end %>
 
 </body>
 </html>
