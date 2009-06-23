@@ -6,7 +6,7 @@ class CreateQuotes < ActiveRecord::Migration
       t.string :to, :default => '', :null => false
       t.string :cc, :default => '', :null => false
       t.text :body, :default => '', :null => false
-      t.datetime :sent_at, :default => '0000-00-00 00:00:00', :null => false
+      t.datetime :sent_at
 
       t.timestamps
     end

@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(:version => 20090622142748) do
     t.string   "to",         :default => "", :null => false
     t.string   "cc",         :default => "", :null => false
     t.text     "body",                       :null => false
-    t.datetime "sent_at",                    :null => false
+    t.datetime "sent_at",
     t.datetime "created_at"
     t.datetime "updated_at"
   end
