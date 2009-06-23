@@ -33,7 +33,7 @@ ActiveRecord::Schema.define(:version => 20090622142748) do
     t.datetime "updated_at"
   end
 
-  create_table "templates", :force => true do |t|
+  create_table "profiles", :force => true do |t|
     t.string   "name",       :default => "", :null => false
     t.text     "html",                       :null => false
     t.string   "from",       :default => "", :null => false

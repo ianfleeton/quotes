@@ -1,6 +1,6 @@
-class CreateTemplates < ActiveRecord::Migration
+class CreateProfiles < ActiveRecord::Migration
   def self.up
-    create_table :templates do |t|
+    create_table :profiles do |t|
       t.string :name, :default => '', :null => false
       t.text :html, :default => '', :null => false
       t.string :from, :default => '', :null => false
@@ -12,6 +12,6 @@ class CreateTemplates < ActiveRecord::Migration
   end
 
   def self.down
-    drop_table :templates
+    drop_table :profiles
   end
 end
