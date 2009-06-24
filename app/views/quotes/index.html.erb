@@ -1,6 +1,4 @@
-<h1>Quotes</h1>
-
-<p><%= link_to 'New quote', new_quote_path %></p>
+<p><%= link_to image_tag('new.png', :alt => 'New quote'), new_quote_path %></p>
 
 <% unless @quotes.empty? -%>
 <table>
@@ -14,7 +12,7 @@
   <tbody>
   <% @quotes.each do |q| -%>
     <tr>
-      <td><%= h q.title %></td>
+      <td><%= link_to h(q.title), :action => 'preview', :id => q %></td>
       <td><%= h q.to %></td>
       <td><%= h q.sent_at %></td>
     </tr>

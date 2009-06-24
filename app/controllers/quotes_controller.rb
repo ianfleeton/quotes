@@ -1,5 +1,5 @@
 class QuotesController < ApplicationController
-  before_filter :admin_required
+  before_filter :setup_nav, :admin_required
 
   VAT_RATE = 15
   
@@ -130,5 +130,7 @@ class QuotesController < ApplicationController
   	line
   end
 
-
+  def setup_nav
+    @nav = 'quotes'
+  end
 end

@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_filter :admin_required
+  before_filter :setup_nav, :admin_required
 
   def index
     @items = Item.all :order => :position
@@ -52,5 +52,11 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
     @item.move_lower
     redirect_to items_url
+  end
+
+  private
+
+  def setup_nav
+    @nav = 'items'
   end
 end
