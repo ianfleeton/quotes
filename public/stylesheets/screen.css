@@ -60,8 +60,8 @@ textarea {
   border: 1px solid #bbb;
 }
 
-table { border-collapse: collapse; margin: 8px 0; }
-td, th { font-size: 13px; padding: 4px 4px; margin: 0; line-height: 20px; }
+table { border-collapse: collapse; margin: 8px 0; width: 640px; }
+td, th { font-size: 13px; padding: 8px 4px; margin: 0; line-height: 20px; }
 th {
   font-weight: bold;
 }

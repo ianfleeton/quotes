@@ -14,7 +14,7 @@
     <tr>
       <td><%= link_to h(q.title), :action => 'preview', :id => q %></td>
       <td><%= h q.to %></td>
-      <td><%= h q.sent_at %></td>
+      <td><%= format_date(q.sent_at) %></td>
     </tr>
   <% end -%>
   </tbody>
