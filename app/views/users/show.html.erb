@@ -1,0 +1,18 @@
+<h1><% if admin? %><%= link_to "Users", :action => "index" %>
+	&rarr; <% end %><%= h @user.name %>&#8217;s Account <%= image_for_admin_status(@user) %></h1>
+
+<%= flash_notice %>
+
+<div class="details">
+
+	<p class="email"><strong>Your registered email address:</strong> <%= mail_to h(@user.email) %></p>
+
+<% if admin? %>	
+	<p class="modify">
+		<%= link_to "edit", :action => "edit", :id => @user.id %> |
+		<%= link_to "destroy", { :action => "destroy", :id => @user.id },
+		 						 :confirm => 'Are you sure?',
+								 :method => :delete %>
+	</p>
+<% end %>
+</div>

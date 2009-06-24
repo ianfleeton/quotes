@@ -1,4 +1,6 @@
 class ProfilesController < ApplicationController
+  before_filter :admin_required
+
   def index
     @profiles = Profile.all
   end

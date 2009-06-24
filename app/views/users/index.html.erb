@@ -1,0 +1,27 @@
+<h1>Users</h1>
+
+<%= flash_notice %>
+
+<table>
+<thead>
+<th>Name</th>
+<th>Admin</th>
+<th>Email</th>
+</thead>
+<tbody>
+	<% for user in @users %>
+	<tr>
+	<td>
+		<%= link_to h(user.name), :action => "show", :id => user.id %>
+	</td>
+	<td>
+		<%= image_for_admin_status(user) %><br />
+	</td>
+	<td>
+		<span class="email"><%= mail_to h(user.email) %></span>
+	</td>
+	</tr>
+	<% end %>
+</tbody>
+</table>
+

@@ -1,4 +1,6 @@
 class QuotesController < ApplicationController
+  before_filter :admin_required
+
   VAT_RATE = 15
   
   def index
@@ -43,6 +45,20 @@ class QuotesController < ApplicationController
     q += "\n<table id=\"quote\">\n"
 	  q += "<tr><th class=\"qty\">Qty</th><th class=\"name\">Description</th>"
 	  q += "<th class=\"unitprice\">Unit Price</th><th class=\"amount\">Amount</th></tr>\n"
+
+  	if params[:items]
+  		params[:items].each_pair do |item_id, qty|
+  		  qty = qty.to_i
+  		  unless qty == 0
+  		    item = Item.find(item_id)
+					q += quote_line(item.name, item.price_in_pounds.to_f, qty)
+					unless item.information.empty?
+					  @details += "\n\n<h2>" + item.name + "</h2>\n"
+					  @details += item.information
+				  end
+  			end
+  		end
+  	end
 
   	vat = @sub_total * (VAT_RATE.to_f / 100)
     
@@ -93,5 +109,26 @@ class QuotesController < ApplicationController
   	money /= 100
   	sprintf("%01.2f", money)
   end
+
+  def quote_line(name, unit_price, quantity=1)
+  	line = ''
+
+  	line += '<tr><td class="qty">' + quantity.to_s + '</td>'
+  	line += '<td class="name">' + name + '</td>'
+  	line += '<td class="unitprice">'
+  	if(unit_price == 0)
+  	  line += 'FOC'
+  	else
+  	  line += money(unit_price)
+	  end
+  	line += '</td>'
+  	amount = unit_price * quantity
+  	line += '<td class="amount">' + money(amount) + '</td>'
+  	line += "</tr>\n"
+  	@sub_total += amount
+
+  	line
+  end
+
 
 end

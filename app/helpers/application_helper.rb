@@ -5,4 +5,8 @@ module ApplicationHelper
       content_tag('div', h(flash[:notice]), {:id => "flash_notice"}) 
     end 
   end
+  
+  def clear
+    content_tag('p', '&nbsp;', {:class => 'clear'})
+  end
 end

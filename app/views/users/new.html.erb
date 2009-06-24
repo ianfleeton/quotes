@@ -1,0 +1,67 @@
+<h1>Get Started</h1>
+
+<%= flash_notice %>
+
+<div id="sign_up">
+
+<h2>First Time?</h2>
+
+<div class="form">
+	<%= error_messages_for :user -%>
+	
+	<fieldset>
+		<legend>Create your account</legend>
+		<% form_for :user, :url => { :action => "create" } do |form| %>
+			<div>
+				<%= form.label :name %>:<br />
+				<%= form.text_field :name, :class => "short" %>
+			</div>
+			<div>
+				<%= form.label :email %>:<br />
+				<%= form.text_field :email, :class => "short" %>
+			</div>
+			<div>
+				<%= form.label :password %>:<br />
+				<%= form.password_field :password, :class => "short" %>
+			</div>
+			<div>
+				<%= form.label :password_confirmation %>:<br />
+				<%= form.password_field :password_confirmation,
+				 						:class => "short" %>
+			</div>
+			
+			<%= submit_tag "Continue" %>
+		<% end %>
+	</fieldset>
+</div>
+
+</div><!--#sign_up-->
+
+<div id="sign_in">
+<h2>Been Here Before?</h2>
+
+<div class="form">
+	<fieldset>
+	<legend>Sign in</legend>
+	<% form_tag :controller => 'sessions', :action => "create" do %>
+		<div>
+			<label for="email">Email: </label><br />
+			<%= text_field_tag :email, params[:email], :class => "short" %>
+		</div>
+		<div>
+			<label for="password">Password: </label><br />
+			<%= password_field_tag :password, params[:password],
+			 					   :class => "short" %>
+		</div>
+		
+		<%= submit_tag "Continue" %>
+	<% end %>
+	</fieldset>
+</div>
+
+<p>If you have forgotten your password, you can <%= link_to "reset and change it", :controller => 'users', :action => 'forgot_password' %></p>
+
+</div><!--#sign_in-->
+
+<%= clear %>
+

@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090622142748) do
+ActiveRecord::Schema.define(:version => 20090624145205) do
 
   create_table "items", :force => true do |t|
     t.string   "name",        :default => "", :null => false
@@ -22,23 +22,34 @@ ActiveRecord::Schema.define(:version => 20090622142748) do
 
   add_index "items", ["position"], :name => "index_items_on_position"
 
-  create_table "quotes", :force => true do |t|
-    t.string   "title",      :default => "", :null => false
-    t.string   "reference",  :default => "", :null => false
-    t.string   "to",         :default => "", :null => false
-    t.string   "cc",         :default => "", :null => false
-    t.text     "body",                       :null => false
-    t.datetime "sent_at",
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "profiles", :force => true do |t|
     t.string   "name",       :default => "", :null => false
     t.text     "html",                       :null => false
     t.string   "from",       :default => "", :null => false
     t.string   "subject",    :default => "", :null => false
     t.text     "intro",                      :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "quotes", :force => true do |t|
+    t.string   "title",      :default => "", :null => false
+    t.string   "reference",  :default => "", :null => false
+    t.string   "to",         :default => "", :null => false
+    t.string   "cc",         :default => "", :null => false
+    t.text     "body",                       :null => false
+    t.datetime "sent_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "users", :force => true do |t|
+    t.string   "email",                 :default => "",    :null => false
+    t.string   "name",                  :default => "",    :null => false
+    t.string   "encrypted_password",    :default => "",    :null => false
+    t.string   "salt",                  :default => "",    :null => false
+    t.boolean  "admin",                 :default => false, :null => false
+    t.string   "forgot_password_token", :default => "",    :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

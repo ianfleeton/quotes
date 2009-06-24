@@ -1,4 +1,6 @@
 class ItemsController < ApplicationController
+  before_filter :admin_required
+
   def index
     @items = Item.all :order => :position
   end
