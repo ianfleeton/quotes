@@ -110,9 +110,9 @@ class QuotesController < ApplicationController
   private
 
   def money(money)
-  	money *= 100;
+  	money *= 100
   	money = money.ceil
-  	money /= 100
+  	money /= 100.0
   	sprintf("%01.2f", money)
   end
 
