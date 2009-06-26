@@ -59,6 +59,23 @@ class QuotesController < ApplicationController
   			end
   		end
   	end
+  	
+  	# extra items
+  	params[:x_qty].length.times do |i|
+  	  i = i.to_s
+  	  begin
+  	    x_qty = params[:x_qty][i].to_i
+  	    x_name = params[:x_name][i]
+  	    x_price = params[:x_price][i]
+  	    x_price.gsub!(/[,£]/,'')
+  	    x_price = x_price.to_f
+  	    if x_qty != 0
+          q += quote_line(x_name, x_price, x_qty)
+        end
+	    rescue
+	      next
+      end
+	  end
 
   	vat = @sub_total * (VAT_RATE.to_f / 100)
     

@@ -25,8 +25,16 @@
   <h2>Items to Include</h2>
   <% @items.each do |item| %>
   <p class="item_list">
-    <input type="text" name="items[<%= item.id %>]" value="0" /> &times; <%= h item.name %> (£<%= item.price_in_pounds %>)<br />
+    <input type="text" class="qty" name="items[<%= item.id %>]" value="0" /> &times; <%= h item.name %> (£<%= item.price_in_pounds %>)
   </p>
   <% end %>
+  <h2>Additional Items</h2>
+  <% 5.times do |i| -%>
+  <p class="item_list">
+    <input type="text" class="qty" name="x_qty[<%= i %>]" value="0" /> &times;
+    <input type="text" class="x_name" name="x_name[<%= i %>]" /> @
+    £<input type="text" class="price" name="x_price[<%= i %>]" /> each
+  </p>
+  <% end -%>
   <%= image_submit_tag 'preview.png', :alt => "Preview" %>
 <% end %>
