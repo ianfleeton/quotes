@@ -64,7 +64,13 @@ class QuotesController < ApplicationController
     
   	q += "<tr><td class=\"subempty\"></td><td class=\"subempty\"></td><td class=\"subtotallabel\">"
   	q += "Sub-total</td><td class=\"subtotal\">" + money(@sub_total) + "</td></tr>\n"
-  	q += "<tr><td class=\"empty\"></td><td class=\"vatno\">VAT No GB 728 0266 38</td>"
+  	q += "<tr><td class=\"empty\"></td>"
+  	if @profile.vat_number.empty?
+  	  q += "<td class=\"empty\">"
+  	else
+  	  q += "<td class=\"vatno\">VAT No " + @profile.vat_number
+  	end
+  	q += "</td>"
   	q += "<td>VAT " + VAT_RATE.to_s + "%</td><td class=\"vat\">" + money(vat) + "</td></tr>\n"
   	total = @sub_total + vat
   	q += "<tr><td class=\"empty\"></td><td class=\"empty\"></td><td class=\"totallabel\">Total</td>"

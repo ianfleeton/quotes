@@ -1,16 +1,17 @@
 <h1>Profiles</h1>
-
+<%= flash_notice %>
 <table>
+  <thead>
+    <tr><th>Profile Name</th></tr>
+  </thead>
+  <tbody>
+<% @profiles.each do |profile| -%>
   <tr>
+    <td><%= link_to h(profile.name), edit_profile_path(profile) %></td>
+    <td>&nbsp;<%= link_to image_tag('delete.png', :alt=>'Delete'), profile, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
-
-<% @profiles.each do |profile| %>
-  <tr>
-    <td><%= h profile.name %></td>
-    <td><%= link_to 'Edit', edit_profile_path(profile) %></td>
-    <td><%= link_to 'Destroy', profile, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
+<% end -%>
+  </tbody>
 </table>
 
 <br />
