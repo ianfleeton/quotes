@@ -1,3 +1,4 @@
+<%= flash_notice %>
 <p><%= link_to image_tag('new.png', :alt => 'New quote'), new_quote_path %></p>
 
 <% unless @quotes.empty? -%>
@@ -7,6 +8,7 @@
       <th>Title</th>
       <th>Recipient</th>
       <th>Sent</th>
+      <th>&nbsp;</th>
     </tr>
   </thead>
   <tbody>
@@ -15,6 +17,7 @@
       <td><%= link_to h(q.title), :action => 'preview', :id => q %></td>
       <td><%= h q.to %></td>
       <td><%= format_date(q.sent_at) %></td>
+      <td>&nbsp;<%= link_to image_tag('delete.png', :alt=>'Delete'), q, :confirm => 'Are you sure?', :method => :delete, :class => 'button' %></td>
     </tr>
   <% end -%>
   </tbody>

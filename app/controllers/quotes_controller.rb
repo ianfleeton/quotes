@@ -123,6 +123,13 @@ class QuotesController < ApplicationController
     flash[:notice] = 'Quote sent'
     redirect_to :action => 'index'
   end
+
+  def destroy
+    @quote = Quote.find(params[:id])
+    @quote.destroy
+    flash[:notice] = 'Quote deleted.'
+    redirect_to quotes_url
+  end
   
   private
 
