@@ -1,3 +1,4 @@
+# coding: utf-8
 class QuotesController < ApplicationController
   before_filter :setup_nav, :admin_required
 
