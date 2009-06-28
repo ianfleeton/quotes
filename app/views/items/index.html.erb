@@ -3,11 +3,10 @@
 <table>
   <thead>
     <tr>
-      <th>&nbsp;</th>
-      <th>&nbsp;</th>
+      <th class="up_down">&nbsp;</th>
+      <th class="up_down">&nbsp;</th>
       <th>Name</th>
       <th>Price</th>
-      <th>&nbsp;</th>
       <th>&nbsp;</th>
     </tr>
   </thead>
@@ -23,7 +22,7 @@
     <% end %></td>
     <td><%= link_to h(item.name), edit_item_path(item) %></td>
     <td>£<%= h item.price_in_pounds %></td>
-    <td>&nbsp;<%= link_to image_tag('delete.png', :alt=>'Delete'), item, :confirm => 'Are you sure?', :method => :delete, :class => 'button' %></td>
+    <td class="delete_button">&nbsp;<%= link_to image_tag('delete.png', :alt=>'Delete'), item, :confirm => 'Are you sure?', :method => :delete, :class => 'button' %></td>
   </tr>
 <% end %>
   </tbody>

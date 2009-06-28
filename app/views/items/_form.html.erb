@@ -7,6 +7,6 @@
   <%= form.text_area :information %>
 </p>
 <p>
-  <%= form.label :price_in_pounds %><br />
-  £<%= form.text_field :price_in_pounds %>
+  <%= form.label :price_in_pounds, 'Price' %><br />
+  £<%= form.text_field :price_in_pounds, :class => 'price' %>
 </p>

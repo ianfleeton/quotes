@@ -1,6 +1,5 @@
 body {
   color: #333;
-  background: #999;
   font-family:"Lucida Grande","Trebuchet MS",Verdana,Helvetica,Arial,sans-serif;
   padding-top: 16px;
 }
@@ -16,10 +15,6 @@ p, td, textarea, th {
   background: #fff;
   margin-left: auto;
   margin-right: auto;
-
-  -moz-border-radius: 16px;
-	-webkit-border-radius: 16px;
-	border: 1px solid #fff;
 }
 
 #logo {
@@ -65,8 +60,14 @@ td, th { font-size: 13px; padding: 8px 4px; margin: 0; line-height: 20px; }
 th {
   font-weight: bold;
 }
+th.up_down {
+  width: 32px;
+}
 td {
   border-top: 1px solid #bbb;
+}
+td.delete_button {
+  text-align: right;
 }
 textarea#profile_html {
   font-family: 'Anonymous Pro', 'Monaco', 'Courier', monospace;

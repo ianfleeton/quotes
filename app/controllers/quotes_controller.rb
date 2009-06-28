@@ -102,7 +102,23 @@ class QuotesController < ApplicationController
 
     @quote.body = body
     @quote.save
+    
     render :action => 'create', :layout => false
+  end
+
+  def file_for_quote ext
+    File::join(RAILS_ROOT, 'pdf', 'html_tmp', 'quote' + @quote.id.to_s + '.' + ext)
+  end
+
+  def generate_pdf
+    html = file_for_quote '.html'
+    f = File.new(html, 'w')
+    f.puts @quote.body
+    f.close
+    
+    dompdf = File::join(RAILS_ROOT, 'pdf', 'dompdf-0.5.1', 'dompdf.php')
+    cmd = "php #{dompdf} -p a4 #{html}"
+    system(cmd)
   end
 
   def send_or_back
@@ -112,13 +128,14 @@ class QuotesController < ApplicationController
 
   def preview
     @quote = Quote.find(params[:id])
+    generate_pdf
     render :action => 'preview', :layout => false
   end
   
   def send_quote
     @quote = Quote.find(params[:id])
     @profile = Profile.find(:first)
-    Emailer.deliver_quote(@quote, @profile.from)
+    Emailer.deliver_quote(@quote, @profile.from, file_for_quote('.pdf'))
     @quote.sent_at = Time.now
     @quote.save
     flash[:notice] = 'Quote sent'
