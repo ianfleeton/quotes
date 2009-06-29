@@ -2,23 +2,20 @@
 
 <%= flash_notice %>
 
-<div class="form">
-	<fieldset>
-	<legend>Enter email/password</legend>
+<div class="form" id="sessions_new">
 	<% form_tag :action => "create" do %>
-		<div>
+		<p>
 			<label for="email">Email: </label><br />
 			<%= text_field_tag :email, params[:email], :class => "short" %>
-		</div>
-		<div>
+		</p>
+		<p>
 			<label for="password">Password: </label><br />
 			<%= password_field_tag :password, params[:password],
 			 					   :class => "short" %><br />
 			<%= link_to "Forgotten your password?", :controller => 'users', :action => 'forgot_password' %>
-		</div>
+		</p>
 		
 		<%= image_submit_tag 'login.png', :alt => "Login" %>
 	<% end %>
-	</fieldset>
 </div>
 

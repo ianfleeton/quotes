@@ -16,6 +16,9 @@
     <li id="items_link"><%= link_to 'Items', items_path %></li>
   </ul>
 <%= yield %>
+<% if @current_user %>
+  <p id="sign_out"><%= link_to 'Sign out', :controller => 'sessions', :action => 'destroy' %></p>
+<% end %>
 </div><!--#layout-->
 </body>
 </html>

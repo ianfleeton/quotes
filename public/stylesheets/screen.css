@@ -9,6 +9,28 @@ p, td, textarea, th {
   font-size: 14px;
 }
 
+h1 {
+  font-size: 20px;
+  color: #000;
+  font-weight: bold;
+  margin-bottom: 12px;
+}
+
+a {
+  color: #06f;
+}
+a:hover {
+  color: #00f;
+}
+
+#flash_notice {
+	border: 1px solid #ca8902;
+	background: #fee848;
+	padding: 8px;
+	margin: 8px;
+	color: #333;
+}
+
 #layout {
   width: 640px;
   padding: 20px;
@@ -80,7 +102,7 @@ textarea#profile_html {
   border: 1px solid #141414;
 }
 
-input[type=text] {
+input[type=text], input[type=password] {
   font-size: 14px;
   border: 1px solid #bbb;
   width: 634px;
@@ -102,9 +124,19 @@ input.price {
   width: 64px;
 }
 
+#sessions_new input[type=text],
+#sessions_new input[type=password] {
+  width: 192px;
+}
+
 #buttons {
   text-align: center;
 }
 .button img {
   vertical-align: bottom;
+}
+
+#sign_out {
+  font-size: 12px;
+  text-align: right;
 }
