@@ -1,0 +1,12 @@
+%p
+  = form.label :name
+  %br
+  = form.text_field :name
+%p
+  = form.label :information
+  %br
+  = form.text_area :information
+%p
+  = form.label :price_in_pounds, 'Price'
+  %br
+  = '&pound;' + form.text_field(:price_in_pounds, :class => 'price')
