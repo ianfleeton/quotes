@@ -1,6 +1,7 @@
 # coding: utf-8
 class QuotesController < ApplicationController
   before_filter :setup_nav, :admin_required
+  before_filter :find_quote, :only => [:send_or_back, :preview, :send_quote, :destroy]
 
   VAT_RATE = 15
   
@@ -122,18 +123,15 @@ class QuotesController < ApplicationController
   end
 
   def send_or_back
-    @quote = Quote.find(params[:id])
     render :action => 'send_or_back', :layout => false
   end
 
   def preview
-    @quote = Quote.find(params[:id])
-    generate_pdf
     render :action => 'preview', :layout => false
   end
   
   def send_quote
-    @quote = Quote.find(params[:id])
+    generate_pdf
     @profile = Profile.find(:first)
     Emailer.deliver_quote(@quote, @profile.from, file_for_quote('.pdf'))
     @quote.sent_at = Time.now
@@ -143,7 +141,6 @@ class QuotesController < ApplicationController
   end
 
   def destroy
-    @quote = Quote.find(params[:id])
     @quote.destroy
     flash[:notice] = 'Quote deleted.'
     redirect_to quotes_url
@@ -180,5 +177,9 @@ class QuotesController < ApplicationController
 
   def setup_nav
     @nav = 'quotes'
+  end
+
+  def find_quote
+    @quote = Quote.find(params[:id])
   end
 end
