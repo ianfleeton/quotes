@@ -50,7 +50,7 @@ class QuotesController < ApplicationController
 
   	if params[:items]
   		params[:items].each_pair do |item_id, qty|
-  		  qty = qty.to_i
+  		  qty = qty.to_f
   		  unless qty == 0
   		    item = Item.find(item_id)
 					q += quote_line(item.name, item.price_in_pounds.to_f, qty)
@@ -66,7 +66,7 @@ class QuotesController < ApplicationController
   	params[:x_qty].length.times do |i|
   	  i = i.to_s
   	  begin
-  	    x_qty = params[:x_qty][i].to_i
+  	    x_qty = params[:x_qty][i].to_f
   	    x_name = params[:x_name][i]
   	    x_price = params[:x_price][i]
   	    x_price.gsub!(/[,£]/,'')
@@ -156,9 +156,13 @@ class QuotesController < ApplicationController
   end
 
   def quote_line(name, unit_price, quantity=1)
+    display_qty = quantity.to_s
+    if display_qty[-2,2] == '.0'
+      display_qty = display_qty[0,display_qty.length-2]
+    end
   	line = ''
 
-  	line += '<tr><td class="qty">' + quantity.to_s + '</td>'
+  	line += '<tr><td class="qty">' + display_qty + '</td>'
   	line += '<td class="name">' + name + '</td>'
   	line += '<td class="unitprice">'
   	if(unit_price == 0)
