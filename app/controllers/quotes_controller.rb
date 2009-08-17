@@ -6,20 +6,19 @@ class QuotesController < ApplicationController
   VAT_RATE = 15
   
   def index
-    @quotes = Quote.all(:conditions => 'sent_at IS NOT NULL', :order => 'created_at DESC')
+    @quotes = @current_profile.quotes
   end
   
   def new
-    @profile = Profile.find(:first)
-    @items = Item.all :order => :position
   end
   
   def create
     @quote = Quote.new
+    @quote.profile_id = @current_profile.id
 
-    @profile = Profile.find(params[:profile_id])
-    @profile.intro = params[:introduction]
-    @profile.save
+    # update profile default introduction
+    @current_profile.intro = params[:introduction]
+    @current_profile.save
 
     if params[:title].empty?
       flash.now[:notice] = 'The quote form was not filled out correctly: A title must be specified'
@@ -84,10 +83,10 @@ class QuotesController < ApplicationController
   	q += "<tr><td class=\"subempty\"></td><td class=\"subempty\"></td><td class=\"subtotallabel\">"
   	q += "Sub-total</td><td class=\"subtotal\">" + money(@sub_total) + "</td></tr>\n"
   	q += "<tr><td class=\"empty\"></td>"
-  	if @profile.vat_number.empty?
+  	if @current_profile.vat_number.empty?
   	  q += "<td class=\"empty\">"
   	else
-  	  q += "<td class=\"vatno\">VAT No " + @profile.vat_number
+  	  q += "<td class=\"vatno\">VAT No " + @current_profile.vat_number
   	end
   	q += "</td>"
   	q += "<td>VAT " + VAT_RATE.to_s + "%</td><td class=\"vat\">" + money(vat) + "</td></tr>\n"
@@ -96,7 +95,7 @@ class QuotesController < ApplicationController
   	q += "<td class=\"total\">" + money(total) + "</td></tr>\n"
   	q += "</table>\n"
 
-    body = @profile.html
+    body = @current_profile.html
     body.gsub!('[quote]', q)
     body.gsub!('[introduction]', params[:introduction])
     body.gsub!('[details]', @details)
@@ -132,8 +131,7 @@ class QuotesController < ApplicationController
   
   def send_quote
     generate_pdf
-    @profile = Profile.find(:first)
-    Emailer.deliver_quote(@quote, @profile.from, file_for_quote('.pdf'))
+    Emailer.deliver_quote(@quote, @current_profile.from, file_for_quote('.pdf'))
     @quote.sent_at = Time.now
     @quote.save
     flash[:notice] = 'Quote sent'

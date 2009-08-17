@@ -5,8 +5,8 @@ class ApplicationController < ActionController::Base
   helper :all # include all helpers, all the time
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
 
-  before_filter :initialize_user
-  
+  before_filter :initialize_user, :initialize_profile
+
   # make these available as ActionView helper methods.
   helper_method :logged_in?, :admin?
 
@@ -35,6 +35,14 @@ class ApplicationController < ActionController::Base
   # setup user info on each page
   def initialize_user
     @current_user = User.find_by_id(session[:user])
+  end
+
+  # setup profile info on each page; dependent on host name in request
+  def initialize_profile
+    @current_profile = Profile.find_by_domain(request.host)
+    if @current_profile.nil?
+      render :template => "public/404.html", :layout => false, :status => 404
+    end
   end
 
   # Scrub sensitive parameters from your log
