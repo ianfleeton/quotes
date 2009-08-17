@@ -40,6 +40,7 @@ ActionController::Routing::Routes.draw do |map|
   # consider removing the them or commenting them out if you're using named routes and resources.
   map.root :controller => "quotes"
   map.resources :items
+  map.resources :categories
   map.resources :quotes, :collection => { :send_or_back => :get, :preview => :get, :send_quote => :post }
   map.resources :profiles
   map.connect ':controller/:action/:id'

@@ -1,0 +1,28 @@
+<%= flash_notice %>
+<p><%= link_to image_tag('new.png', :alt => 'New category'), new_category_path %></p>
+
+<table>
+  <thead>
+    <tr>
+      <th class="up_down">&nbsp;</th>
+      <th class="up_down">&nbsp;</th>
+      <th>Name</th>
+      <th>&nbsp;</th>
+    </tr>
+  </thead>
+  <tbody>
+
+<% @current_profile.categories.each do |category| %>
+  <tr>
+    <td><% unless category.first? %>&nbsp;
+    <%= link_to image_tag('up.png', :alt=>'Up'), {:action => 'up', :id => category}, :class=>'button' %>
+    <% end %></td>
+    <td><% unless category.last? %>&nbsp;
+    <%= link_to image_tag('down.png', :alt=>'Down'), {:action => 'down', :id => category}, :class=>'button' %>
+    <% end %></td>
+    <td><%= link_to h(category.name), edit_category_path(category) %></td>
+    <td class="delete_button">&nbsp;<%= link_to image_tag('delete.png', :alt=>'Delete'), category, :confirm => 'Are you sure?', :method => :delete, :class => 'button' %></td>
+  </tr>
+<% end %>
+  </tbody>
+</table>

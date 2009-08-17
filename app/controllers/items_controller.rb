@@ -2,7 +2,6 @@ class ItemsController < ApplicationController
   before_filter :setup_nav, :admin_required
 
   def index
-    @items = Item.all :order => :position
   end
   
   def new
@@ -15,6 +14,18 @@ class ItemsController < ApplicationController
   
   def create
     @item = Item.new(params[:item])
+
+    # check that the submitted category exists
+    # and belongs to the same website profile
+    category = Item.find_by_id(params[:item][:category_id])
+    if category.nil? or category.profile_id != @current_profile.id
+      flash[:notice] = 'Invalid category.'
+      render :action => 'new'
+      return
+    end
+    @item.category_id = category.id
+    
+    @item.profile_id = @current_profile.id
     
     if @item.save
       flash[:notice] = 'Item created.'

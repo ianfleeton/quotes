@@ -16,6 +16,22 @@ h1 {
   margin-bottom: 12px;
 }
 
+h2, h3 {
+  font-weight: bold;
+  margin-bottom: 0;
+  margin-top: 12px;
+  font-size: 16px;
+  color: #000;
+  background: #333;
+  color: #fff;
+  padding: 4px;
+}
+h3 {
+  color: #000;
+  background: #ccc;
+  font-size: 14px;
+}
+
 a {
   color: #06f;
 }
@@ -45,20 +61,27 @@ a:hover {
 }
 
 .nav {
-  height: 43px; width: 207px;
+  height: 43px; width: 300px;
   margin-left: auto; margin-right: auto;
-  background-image: url(/images/quotes_items.png);
+/*  background-image: url(/images/quotes_items.png);*/
 }
 #the_items_nav { background-position: 0 -51px; }
 #the__nav { background-position: 0 -102px; }
 .nav li a {
   display: block;
-  width: 103px;
+  width: 90px;
+  border-top: 1px solid #888;
+  border-left: 1px solid #888;
+  border-bottom: 1px solid #333;
+  border-right: 1px solid #333;
+  margin: 0 4px;
   font-size: 13px;
-  height: 43px;
+  height: 26px;
   text-decoration: none;
   text-align: center;
-  color: transparent;
+  line-height: 26px;
+  background: #666;
+  color: #fff;
 }
 /*
 .nav li a:hover {
@@ -66,6 +89,16 @@ a:hover {
   color: transparent;
 }
 */
+#the_items_nav #items_link a,
+#the_categories_nav #categories_link a,
+#the_quotes_nav #quotes_link a {
+  background: #444;
+  border-top: 1px solid #333;
+  border-left: 1px solid #333;
+  border-bottom: 1px solid #888;
+  border-right: 1px solid #888;
+}
+
 .nav li {
   float: left;
 }
