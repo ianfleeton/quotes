@@ -10,9 +10,10 @@
 </head>
 <body>
 <div id="layout">
-  <div id="logo"><img src="/images/logo.png" alt="Logo" /></div>
+  <div id="logo"><img src="/images/<%= @current_profile.domain %>.logo.png" alt="Logo" /></div>
   <ul class="nav" id="the_<%= @nav unless @nav.nil? %>_nav">
     <li id="quotes_link"><%= link_to 'Quotes', quotes_path %></li>
+    <li id="categories_link"><%= link_to 'Categories', categories_path %></li>
     <li id="items_link"><%= link_to 'Items', items_path %></li>
   </ul>
 <%= yield %>
