@@ -17,7 +17,7 @@ class ItemsController < ApplicationController
 
     # check that the submitted category exists
     # and belongs to the same website profile
-    category = Item.find_by_id(params[:item][:category_id])
+    category = Category.find_by_id(params[:item][:category_id])
     if category.nil? or category.profile_id != @current_profile.id
       flash[:notice] = 'Invalid category.'
       render :action => 'new'
