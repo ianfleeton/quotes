@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   before_filter :admin_required, :only => [:index, :destroy]
 
   def index
-    @users = User.find(:all, :order => "name", :include => :organisation)
+    @users = User.find(:all, :order => "name")
   end
   
   def show
