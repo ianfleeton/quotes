@@ -18,6 +18,9 @@ class ProfilesController < ApplicationController
     
     if @profile.save
       flash[:notice] = 'Profile created.'
+      category = Category.new(:name => 'Miscellaneous')
+      category.profile_id = @profile.id
+      category.save!
       redirect_to profiles_path
     else
       render :action => 'new'
