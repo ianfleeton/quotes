@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   helper :all # include all helpers, all the time
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
 
-  before_filter :initialize_user, :initialize_profile
+  before_filter :set_timezone, :initialize_user, :initialize_profile
 
   # make these available as ActionView helper methods.
   helper_method :logged_in?, :admin?
@@ -43,6 +43,10 @@ class ApplicationController < ActionController::Base
     if @current_profile.nil?
       render :template => "public/404.html", :layout => false, :status => 404
     end
+  end
+
+  def set_timezone
+    Time.zone = 'London'
   end
 
   # Scrub sensitive parameters from your log
