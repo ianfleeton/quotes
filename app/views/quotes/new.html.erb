@@ -1,6 +1,6 @@
 <h1>New Quote</h1>
 
-<% form_tag :action => 'create' do %>
+<%= form_tag :action => 'create' do %>
   <p>
     <label for="title">Title:</label><br />
     <input type="text" id="title" name="title" value="<%= h @current_profile.subject %>" />
@@ -31,7 +31,7 @@
   <% end %>
   <% end %>
   <h2>Additional Items</h2>
-  <% 5.times do |i| -%>
+  <% 10.times do |i| -%>
   <p class="item_list">
     <input type="text" class="qty" name="x_qty[<%= i %>]" value="0" /> &times;
     <input type="text" class="x_name" name="x_name[<%= i %>]" /> @
