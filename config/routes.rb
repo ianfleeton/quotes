@@ -2,9 +2,19 @@ Quotes::Application.routes.draw do
 
   root :to => "quotes#index"
 
-  resources :items
+  resources :items do
+    collection do
+      get 'up'
+      get 'down'
+    end
+  end
 
-  resources :categories
+  resources :categories do
+    collection do
+      get 'up'
+      get 'down'
+    end
+  end
 
   resources :quotes do
     collection do
