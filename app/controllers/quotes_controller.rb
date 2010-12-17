@@ -107,7 +107,7 @@ class QuotesController < ApplicationController
   end
 
   def file_for_quote ext
-    File::join(RAILS_ROOT, 'pdf', 'html_tmp', 'quote' + @quote.id.to_s + '.' + ext)
+    File::join(Rails.root, 'pdf', 'html_tmp', 'quote' + @quote.id.to_s + '.' + ext)
   end
 
   def generate_pdf
@@ -116,7 +116,7 @@ class QuotesController < ApplicationController
     f.puts @quote.body
     f.close
     
-    dompdf = File::join(RAILS_ROOT, 'pdf', 'dompdf-0.5.1', 'dompdf.php')
+    dompdf = File::join(Rails.root, 'pdf', 'dompdf-0.5.1', 'dompdf.php')
     cmd = "php #{dompdf} -p a4 #{html}"
     system(cmd)
   end
