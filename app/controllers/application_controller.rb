@@ -41,7 +41,7 @@ class ApplicationController < ActionController::Base
   def initialize_profile
     @current_profile = Profile.find_by_domain(request.host)
     if @current_profile.nil?
-      render :template => "public/404.html", :layout => false, :status => 404
+      render "public/404.html", :layout => false, :status => 404
     end
   end
 
