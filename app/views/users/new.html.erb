@@ -11,7 +11,7 @@
 	
 	<fieldset>
 		<legend>Create your account</legend>
-		<% form_for :user, :url => { :action => "create" } do |form| %>
+		<%= form_for :user, :url => { :action => "create" } do |form| %>
 			<div>
 				<%= form.label :name %>:<br />
 				<%= form.text_field :name, :class => "short" %>
@@ -43,7 +43,7 @@
 <div class="form">
 	<fieldset>
 	<legend>Sign in</legend>
-	<% form_tag :controller => 'sessions', :action => "create" do %>
+	<%= form_tag :controller => 'sessions', :action => "create" do %>
 		<div>
 			<label for="email">Email: </label><br />
 			<%= text_field_tag :email, params[:email], :class => "short" %>
