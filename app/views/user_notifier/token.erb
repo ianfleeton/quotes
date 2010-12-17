@@ -1,7 +1,7 @@
-<%= @name %>,
+<%= @user.name %>,
 
 To change your password please go to
 
-<%= URL %>users/forgot_password_new?id=<%= @id %>&t=<%= @token %>
+<%= URL %>users/forgot_password_new?id=<%= @user.id %>&t=<%= @user.forgot_password_token %>
 
 and follow the instructions.

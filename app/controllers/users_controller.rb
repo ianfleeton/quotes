@@ -55,7 +55,7 @@ class UsersController < ApplicationController
     else
       @user.forgot_password_token = User.generate_forgot_password_token
       @user.save
-      UserNotifier.deliver_token @user
+      UserNotifier.token(@user).deliver
     end
   end
 

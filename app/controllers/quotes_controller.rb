@@ -131,7 +131,7 @@ class QuotesController < ApplicationController
   
   def send_quote
     generate_pdf
-    Emailer.deliver_quote(@quote, @current_profile.from, file_for_quote('.pdf'))
+    Emailer.quote(@quote, @current_profile.from, file_for_quote('.pdf')).deliver
     @quote.sent_at = Time.now
     @quote.save
     flash[:notice] = 'Quote sent'
