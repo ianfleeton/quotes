@@ -1,7 +1,7 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.3'
+gem 'rails', '3.0.4'
 
-gem 'haml', '3.0.24'
+gem 'haml', '3.0.25'
 
-gem 'mysql', '2.8.1'
+gem 'mysql2', '0.2.6'
