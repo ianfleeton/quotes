@@ -5,15 +5,15 @@
 <title>Preview Quote</title>
 </head>
 <frameset cols="100%" rows="50,*">
-<frame src="/quotes/send_or_back/<%= @quote.id %>" />
-<frame src="/quotes/preview/<%= @quote.id %>" />
+<frame src="/quotes/<%= @quote.id %>/send_or_back" />
+<frame src="/quotes/<%= @quote.id %>/preview" />
 </frameset>
 <noframes>
 <p>Your browser does not support frames. You can:</p>
 <ul>
 <li>go back and make changes or</li>
-<li><a href="/quotes/send_or_back/<%= @quote.id %>">preview the quote here</a> or</li>
-<li><a href="/quotes/preview/<%= @quote.id %>">send the quote now</a></li>
+<li><a href="/quotes/<%= @quote.id %>/send_or_back">preview the quote here</a> or</li>
+<li><a href="/quotes/<%= @quote.id %>/preview">send the quote now</a></li>
 </ul>
 </noframes>
 </html>

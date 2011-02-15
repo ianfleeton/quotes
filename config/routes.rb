@@ -17,7 +17,7 @@ Quotes::Application.routes.draw do
   end
 
   resources :quotes do
-    collection do
+    member do
       get 'send_or_back'
       get 'preview'
       post 'send_quote'
