@@ -9,4 +9,4 @@
 %p
   = form.label :price_in_pounds, 'Price'
   %br
-  = '&pound;' + form.text_field(:price_in_pounds, :class => 'price')
+  = '&pound;'.html_safe + form.text_field(:price_in_pounds, :class => 'price')
