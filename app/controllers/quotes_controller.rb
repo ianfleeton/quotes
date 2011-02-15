@@ -3,7 +3,7 @@ class QuotesController < ApplicationController
   before_filter :setup_nav, :admin_required
   before_filter :find_quote, :only => [:send_or_back, :preview, :send_quote, :destroy]
 
-  VAT_RATE = 17.5
+  VAT_RATE = 20
   
   def index
     @quotes = @current_profile.quotes
