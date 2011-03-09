@@ -106,21 +106,6 @@ class QuotesController < ApplicationController
     render :action => 'create', :layout => false
   end
 
-  def file_for_quote ext
-    File::join(Rails.root, 'pdf', 'html_tmp', 'quote' + @quote.id.to_s + '.' + ext)
-  end
-
-  def generate_pdf
-    html = file_for_quote '.html'
-    f = File.new(html, 'w')
-    f.puts @quote.body
-    f.close
-    
-    dompdf = File::join(Rails.root, 'pdf', 'dompdf-0.5.1', 'dompdf.php')
-    cmd = "php #{dompdf} -p a4 #{html}"
-    system(cmd)
-  end
-
   def send_or_back
     render :action => 'send_or_back', :layout => false
   end
@@ -145,6 +130,21 @@ class QuotesController < ApplicationController
   end
   
   private
+
+  def file_for_quote ext
+    File::join(Rails.root, 'pdf', 'html_tmp', 'quote' + @quote.id.to_s + '.' + ext)
+  end
+
+  def generate_pdf
+    html = file_for_quote '.html'
+    f = File.new(html, 'w')
+    f.puts @quote.body
+    f.close
+
+    dompdf = File::join(Rails.root, 'pdf', 'dompdf-0.5.1', 'dompdf.php')
+    cmd = "php #{dompdf} -p a4 #{html}"
+    system(cmd)
+  end
 
   def money(money)
   	money *= 100
