@@ -28,7 +28,6 @@ Quotes::Application.routes.draw do
 
   resources :users
 
-  resource :session, :only => [:new, :create, :destroy]
 
   match 'signup' => 'users#new', :as => :signup
 
@@ -37,6 +36,8 @@ Quotes::Application.routes.draw do
   match 'login' => 'sessions#new', :as => :login
 
   match 'logout' => 'sessions#destroy', :as => :logout
+
+  resources :sessions
 
   match 'forgot_password' => 'users#forgot_password', :as => :forgot_password
   match 'forgot_password_send' => 'users#forgot_password_send', :as => :forgot_password_send
