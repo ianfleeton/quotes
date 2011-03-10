@@ -99,6 +99,9 @@ class QuotesController < ApplicationController
     body.gsub!('[quote]', q)
     body.gsub!('[introduction]', params[:introduction])
     body.gsub!('[details]', @details)
+    body.gsub!('[reference]', @quote.reference)
+    body.gsub!('[to]', @quote.to)
+    body.gsub!('[total]', total.to_s)
 
     @quote.body = body
     @quote.save
