@@ -7,5 +7,6 @@ gem 'haml', '3.0.25'
 gem 'mysql2', '0.2.6'
 
 group :test, :development do
+  gem "autotest"
   gem "rspec-rails", "~> 2.4"
 end
