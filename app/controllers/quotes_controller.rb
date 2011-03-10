@@ -20,14 +20,19 @@ class QuotesController < ApplicationController
     @current_profile.intro = params[:introduction]
     @current_profile.save
 
+    incorrect = 'The quote form was not filled out correctly: '
+
     if params[:title].empty?
-      flash.now[:notice] = 'The quote form was not filled out correctly: A title must be specified'
+      flash.now[:notice] = incorrect + 'A title must be specified'
       render :action => 'quote_help' and return
     elsif params[:reference].empty?
-      flash.now[:notice] = 'The quote form was not filled out correctly: A quote reference must be specified'
+      flash.now[:notice] = incorrect + 'A quote reference must be specified'
       render :action => 'quote_help' and return
     elsif params[:to].empty?
-      flash.now[:notice] = 'The quote form was not filled out correctly: A recipient must be specified'
+      flash.now[:notice] = incorrect + 'A recipient must be specified'
+      render :action => 'quote_help' and return
+    elsif params[:carriage].empty?
+      flash.now[:notice] = incorrect + 'Carriage must be specified. Enter 0 for no carriage.'
       render :action => 'quote_help' and return
     end
 
@@ -77,6 +82,10 @@ class QuotesController < ApplicationController
 	      next
       end
 	  end
+
+    unless params[:carriage] == "0"
+      q += quote_line('Carriage', params[:carriage].to_f, 1)
+    end
 
   	vat = @sub_total * (VAT_RATE.to_f / 100)
     

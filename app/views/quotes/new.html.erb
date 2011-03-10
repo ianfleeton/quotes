@@ -38,5 +38,9 @@
     £<input type="text" class="price" name="x_price[<%= i %>]" /> each
   </p>
   <% end -%>
+  <p>
+    <label for="cc">Carriage:</label><br />
+    £<input type="text" id="carriage" name="carriage" class="price" />
+  </p>
   <%= image_submit_tag 'preview.png', :alt => "Preview" %>
 <% end %>
