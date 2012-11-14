@@ -1,7 +1,5 @@
-.bundle
-*.log
-*.tmproj
-.DS_Store
+# Ignore bundler config
+/.bundle
 *.sqlite3
 *.jpg
 *.pdf
@@ -11,3 +9,7 @@
 *.doc
 database.yml
 html_tmp
+
+# Ignore all logfiles and tempfiles.
+/log/*.log
+/tmp

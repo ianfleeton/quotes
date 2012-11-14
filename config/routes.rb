@@ -1,5 +1,4 @@
 Quotes::Application.routes.draw do
-
   root :to => "quotes#index"
 
   resources :items do
