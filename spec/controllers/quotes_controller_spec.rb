@@ -68,7 +68,7 @@ describe QuotesController do
   end
 
   describe "POST send_quote" do
-    let(:emailer) { mock(Emailer).as_null_object }
+    let(:emailer) { double(Emailer).as_null_object }
 
     before do
       Quote.stub(:find).and_return(quote)

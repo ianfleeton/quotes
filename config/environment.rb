@@ -1,10 +1,10 @@
-# Load the rails application
+# Load the Rails application.
 require File.expand_path('../application', __FILE__)
 
-# Initialize the rails application
+# Initialize the Rails application.
 Quotes::Application.initialize!
 
-# Don't verify certificates
+# Don't verify certificates,
 ActionMailer::Base.smtp_settings = {
   openssl_verify_mode: 'none'
 }

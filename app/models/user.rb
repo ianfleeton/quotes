@@ -2,8 +2,6 @@ class User < ActiveRecord::Base
   # unencrypted password
   attr_accessor :password
   
-  attr_protected :admin
-    
   # validation
   validates_length_of     :email, :within => 3..100
   validates_uniqueness_of :email, :case_sensitive => false, :message => 'has already been taken. If you have forgotten your password, contact us at <a href="mailto:' + EMAIL + '">' + EMAIL + '</a> to request a new one.'

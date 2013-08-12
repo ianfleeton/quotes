@@ -13,7 +13,7 @@ class ItemsController < ApplicationController
   end
   
   def create
-    @item = Item.new(params[:item])
+    @item = Item.new(item_params)
 
     # check that the submitted category exists
     # and belongs to the same website profile
@@ -36,7 +36,7 @@ class ItemsController < ApplicationController
   end
   
   def update
-    @item = Item.find(params[:id])
+    @item = Item.find(item_params)
 
     if @item.update_attributes(params[:item])
       flash[:notice] = 'Item saved.'
@@ -69,5 +69,9 @@ class ItemsController < ApplicationController
 
   def setup_nav
     @nav = 'items'
+  end
+
+  def item_params
+    params.require(:item).permit(:category_id, :information, :name, :price)
   end
 end

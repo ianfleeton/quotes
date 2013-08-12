@@ -14,7 +14,7 @@ class ProfilesController < ApplicationController
   end
   
   def create
-    @profile = Profile.new(params[:profile])
+    @profile = Profile.new(profile_params)
     
     if @profile.save
       flash[:notice] = 'Profile created.'
@@ -30,7 +30,7 @@ class ProfilesController < ApplicationController
   def update
     @profile = Profile.find(params[:id])
 
-    if @profile.update_attributes(params[:profile])
+    if @profile.update_attributes(profile_params)
       flash[:notice] = 'Profile saved.'
       redirect_to profiles_path
     else
@@ -43,5 +43,11 @@ class ProfilesController < ApplicationController
     @profile.destroy
     flash[:notice] = 'Profile deleted.'
     redirect_to profiles_url
+  end
+
+  private
+
+  def profile_params
+    params.require(:profile).permit(:domain, :from, :html, :intro, :name, :subject, :vat_number)
   end
 end

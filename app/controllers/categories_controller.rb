@@ -13,7 +13,7 @@ class CategoriesController < ApplicationController
   end
   
   def create
-    @category = Category.new(params[:category])
+    @category = Category.new(category_params)
     @category.profile_id = @current_profile.id
     
     if @category.save
@@ -25,7 +25,7 @@ class CategoriesController < ApplicationController
   end
   
   def update
-    if @category.update_attributes(params[:category])
+    if @category.update_attributes(category_params)
       flash[:notice] = 'Category saved.'
       redirect_to categories_path
     else
@@ -61,5 +61,9 @@ class CategoriesController < ApplicationController
 
   def setup_nav
     @nav = 'categories'
+  end
+
+  def category_params
+    params.require(:category).permit(:name)
   end
 end

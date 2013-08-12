@@ -1,5 +1,5 @@
 Quotes::Application.routes.draw do
-  root :to => "quotes#index"
+  root "quotes#index"
 
   resources :items do
     collection do
@@ -28,19 +28,19 @@ Quotes::Application.routes.draw do
   resources :users
 
 
-  match 'signup' => 'users#new', :as => :signup
+  get 'signup' => 'users#new', as: :signup
 
-  match 'register' => 'users#create', :as => :register
+  post 'register' => 'users#create', as: :register
 
-  match 'login' => 'sessions#new', :as => :login
+  get 'login' => 'sessions#new', as: :login
 
-  match 'logout' => 'sessions#destroy', :as => :logout
+  post 'logout' => 'sessions#destroy', as: :logout
 
   resources :sessions
 
-  match 'forgot_password' => 'users#forgot_password', :as => :forgot_password
-  match 'forgot_password_send' => 'users#forgot_password_send', :as => :forgot_password_send
-  match 'reset_password' => 'users#forgot_password_new', :as => :reset_password
-  match 'forgot_password_change' => 'users#forgot_password_change'
+  get 'forgot_password' => 'users#forgot_password', as: :forgot_password
+  post 'forgot_password_send' => 'users#forgot_password_send', as: :forgot_password_send
+  get 'reset_password' => 'users#forgot_password_new', as: :reset_password
+  post 'forgot_password_change' => 'users#forgot_password_change'
 
 end
