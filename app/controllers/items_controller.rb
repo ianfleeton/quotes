@@ -67,11 +67,11 @@ class ItemsController < ApplicationController
 
   private
 
-  def setup_nav
-    @nav = 'items'
-  end
+    def setup_nav
+      @nav = 'items'
+    end
 
-  def item_params
-    params.require(:item).permit(:information, :name, :price)
-  end
+    def item_params
+      params.require(:item).permit(:information, :name, :price)
+    end
 end
