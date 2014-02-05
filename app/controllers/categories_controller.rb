@@ -55,15 +55,15 @@ class CategoriesController < ApplicationController
 
   private
 
-  def find_category
-    @category = Category.find(params[:id])
-  end
+    def find_category
+      @category = Category.find(params[:id])
+    end
 
-  def setup_nav
-    @nav = 'categories'
-  end
+    def setup_nav
+      @nav = 'categories'
+    end
 
-  def category_params
-    params.require(:category).permit(:name)
-  end
+    def category_params
+      params.require(:category).permit(:name)
+    end
 end
