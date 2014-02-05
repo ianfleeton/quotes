@@ -47,7 +47,4 @@ class ApplicationController < ActionController::Base
   def set_timezone
     Time.zone = 'London'
   end
-
-  # Scrub sensitive parameters from your log
-  # filter_parameter_logging :password
 end
