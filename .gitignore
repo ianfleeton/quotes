@@ -16,8 +16,11 @@
 *.gif
 *.png
 *.doc
-database.yml
 html_tmp
+
+# Ignore sensitive files.
+database.yml
+secrets.yml
 
 # Ignore generated docs.
 /doc/app
