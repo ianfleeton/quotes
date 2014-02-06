@@ -1,10 +1,8 @@
 class UserNotifier < ActionMailer::Base
-  default :from => EMAIL
-
-  def token(user, profile_name, url)
+  def token(user, sender, profile_name, url)
     @user = user
     @url = url
-    mail(:to => user.email,
+    mail(to: user.email, from: sender,
       subject: profile_name + ': how to change your password')
   end
 end

@@ -56,7 +56,7 @@ class UsersController < ApplicationController
       @user.forgot_password_token = User.generate_forgot_password_token
       @user.save
       url = "#{reset_password_url}?id=#{@user.id}&t=#{@user.forgot_password_token}"
-      UserNotifier.token(@user, @current_profile.name, url).deliver
+      UserNotifier.token(@user, @current_profile.from, @current_profile.name, url).deliver
     end
   end
 
