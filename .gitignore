@@ -19,6 +19,9 @@
 database.yml
 html_tmp
 
+# Ignore generated docs.
+/doc/app
+
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
