@@ -22,6 +22,9 @@ html_tmp
 database.yml
 secrets.yml
 
+# Ignore dompdf.
+/pdf/dompdf-0.5.1
+
 # Ignore generated docs.
 /doc/app
 
