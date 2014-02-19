@@ -1,5 +1,5 @@
 <%= flash_notice %>
-<p><%= link_to image_tag('new.png', :alt => 'New quote'), new_quote_path %></p>
+<p><%= link_to 'New quote', new_quote_path, class: 'pure-button pure-button-primary' %></p>
 
 <% unless @quotes.empty? -%>
 <table>

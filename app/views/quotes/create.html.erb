@@ -1,19 +1,7 @@
-<!DOCTYPE html 
-  PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd">
-<html>
-<title>Preview Quote</title>
-</head>
-<frameset cols="100%" rows="50,*">
-<frame src="/quotes/<%= @quote.id %>/send_or_back" />
-<frame src="/quotes/<%= @quote.id %>/preview" />
-</frameset>
-<noframes>
-<p>Your browser does not support frames. You can:</p>
-<ul>
-<li>go back and make changes or</li>
-<li><a href="/quotes/<%= @quote.id %>/send_or_back">preview the quote here</a> or</li>
-<li><a href="/quotes/<%= @quote.id %>/preview">send the quote now</a></li>
-</ul>
-</noframes>
-</html>
+<%= form_tag(send_quote_quote_path(@quote), class: 'pure-form') do %>
+  <input type="hidden" name="id" value="<%= @quote.id %>" />
+  <input type="button" onclick="history.back()" value="Make Changes" class="pure-button">
+  <%= submit_tag 'Send', class: 'pure-button pure-button-primary' %>
+<% end %>
+
+<iframe src="/quotes/<%= @quote.id %>/preview"></iframe>

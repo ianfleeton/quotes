@@ -1,7 +1,7 @@
 # coding: utf-8
 class QuotesController < ApplicationController
   before_filter :setup_nav, :admin_required
-  before_filter :find_quote, :only => [:send_or_back, :preview, :send_quote, :destroy]
+  before_filter :find_quote, only: [:preview, :send_quote, :destroy]
 
   VAT_RATE = 20
   
@@ -114,12 +114,6 @@ class QuotesController < ApplicationController
 
     @quote.body = body
     @quote.save
-    
-    render :action => 'create', :layout => false
-  end
-
-  def send_or_back
-    render :action => 'send_or_back', :layout => false
   end
 
   def preview
