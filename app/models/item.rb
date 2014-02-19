@@ -3,6 +3,8 @@ class Item < ActiveRecord::Base
   belongs_to :category
   acts_as_list :scope => :category
 
+  validates :name, presence: true
+
   def price_in_pounds
     sprintf("%.2f", price.to_f / 100.0) unless price.nil?
   end
