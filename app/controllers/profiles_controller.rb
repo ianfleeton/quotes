@@ -2,7 +2,7 @@ class ProfilesController < ApplicationController
   before_filter :admin_required
 
   def index
-    @profiles = Profile.all(:order => :name)
+    @profiles = Profile.order(:name)
   end
 
   def new
