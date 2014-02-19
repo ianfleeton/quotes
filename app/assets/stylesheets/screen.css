@@ -32,13 +32,6 @@ h3 {
   font-size: 14px;
 }
 
-a {
-  color: #06f;
-}
-a:hover {
-  color: #00f;
-}
-
 #flash_notice {
 	border: 1px solid #ca8902;
 	background: #fee848;
@@ -67,37 +60,6 @@ a:hover {
 }
 #the_items_nav { background-position: 0 -51px; }
 #the__nav { background-position: 0 -102px; }
-.nav li a {
-  display: block;
-  width: 90px;
-  border-top: 1px solid #888;
-  border-left: 1px solid #888;
-  border-bottom: 1px solid #333;
-  border-right: 1px solid #333;
-  margin: 0 4px;
-  font-size: 13px;
-  height: 26px;
-  text-decoration: none;
-  text-align: center;
-  line-height: 26px;
-  background: #666;
-  color: #fff;
-}
-/*
-.nav li a:hover {
-  background: #333;
-  color: transparent;
-}
-*/
-#the_items_nav #items_link a,
-#the_categories_nav #categories_link a,
-#the_quotes_nav #quotes_link a {
-  background: #444;
-  border-top: 1px solid #333;
-  border-left: 1px solid #333;
-  border-bottom: 1px solid #888;
-  border-right: 1px solid #888;
-}
 
 .nav li {
   float: left;
