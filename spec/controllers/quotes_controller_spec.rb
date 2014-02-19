@@ -56,17 +56,6 @@ describe QuotesController do
     end
   end
 
-  describe "GET send_or_back" do
-    before do
-      Quote.stub(:find).and_return(quote)
-    end
-
-    it "finds the quote" do
-      Quote.should_receive(:find).with("1")
-      get "send_or_back", :id => "1"
-    end
-  end
-
   describe "POST send_quote" do
     let(:emailer) { double(Emailer).as_null_object }
 
