@@ -20,4 +20,6 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  items:
+    index:
+      no_categories: There are no categories set up yet. Please create a category first.

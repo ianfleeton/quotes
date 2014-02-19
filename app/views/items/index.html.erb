@@ -1,9 +1,16 @@
 <%= flash_notice %>
-<p><%= link_to image_tag('new.png', :alt => 'New item'), new_item_path %></p>
+
+<% if @current_profile.categories.none? %>
+<p>
+  <%= t('.no_categories') %>
+</p>
+<% else %>
+<p><%= link_to 'New item', new_item_path, class: 'pure-button pure-button-primary' %></p>
+<% end %>
 
 <% @current_profile.categories.each do |category| %>
 
-<h2><%= h category.name %></h2>
+<h2><%= category.name %></h2>
 
 <table>
   <thead>
