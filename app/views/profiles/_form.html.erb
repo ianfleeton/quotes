@@ -1,18 +1,30 @@
+<%= form_for(@profile, html: { class: 'pure-form' }) do |form| %>
+<% if @profile.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@profile.errors.count, "error") %> prohibited this profile from being saved:</h2>
+
+    <ul>
+    <% @profile.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
 <p>
   <%= form.label :name %><br />
-  <%= form.text_field :name %>
+  <%= form.text_field :name, required: true %>
 </p>
 <p>
   <%= form.label :domain %><br />
-  <%= form.text_field :domain %>
+  <%= form.text_field :domain, required: true %>
 </p>
 <p>
   <%= form.label :from %><br />
-  <%= form.text_field :from %>
+  <%= form.text_field :from, required: true %>
 </p>
 <p>
   <%= form.label :subject %><br />
-  <%= form.text_field :subject %>
+  <%= form.text_field :subject, required: true %>
 </p>
 <p>
   <%= form.label :vat_number, 'VAT number' %><br />
@@ -24,5 +36,11 @@
 </p>
 <p>
   <%= form.label :html, 'Template HTML' %><br />
-  <%= form.text_area :html %>
+  <%= form.text_area :html, required: true %>
 </p>
+<p>
+  <%= form.submit 'Save', class: 'pure-button pure-button-primary' %>
+</p>
+<% end %>
+
+<%= link_to 'Back', profiles_path, class: 'pure-button' %>
