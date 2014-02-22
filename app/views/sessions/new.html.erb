@@ -3,19 +3,18 @@
 <%= flash_notice %>
 
 <div class="form" id="sessions_new">
-	<%= form_tag :action => "create" do %>
-		<p>
-			<label for="email">Email: </label><br />
-			<%= text_field_tag :email, params[:email], :class => "short" %>
-		</p>
-		<p>
-			<label for="password">Password: </label><br />
-			<%= password_field_tag :password, params[:password],
-			 					   :class => "short" %><br />
-			<%= link_to "Forgotten your password?", :controller => 'users', :action => 'forgot_password' %>
-		</p>
+  <%= form_tag({ action: 'create' }, class: 'pure-form') do %>
+    <p>
+      <label for="email">Email: </label><br>
+      <%= text_field_tag :email, params[:email], class: 'short' %>
+    </p>
+    <p>
+      <label for="password">Password: </label><br>
+      <%= password_field_tag :password, params[:password],
+      class: 'short' %><br>
+      <%= link_to 'Forgotten your password?', controller: 'users', action: 'forgot_password' %>
+    </p>
 		
-		<%= image_submit_tag 'login.png', :alt => "Login" %>
-	<% end %>
+    <%= submit_tag 'Login', class: 'pure-button pure-button-primary' %>
+  <% end %>
 </div>
-
