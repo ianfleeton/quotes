@@ -1,11 +1,17 @@
 require 'spec_helper'
 
 describe 'items/index.html.erb' do
+  let(:current_profile) { Profile.new }
+
   before do
-    assign(:current_profile, Profile.new)
+    assign(:current_profile, current_profile)
   end
 
   context 'with categories' do
+    before do
+      current_profile.categories << Category.create(name: 'Misc')
+    end
+
     it 'links to new item' do
       render
       expect(rendered).to have_selector new_item_link
