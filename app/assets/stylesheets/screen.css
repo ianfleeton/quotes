@@ -4,7 +4,7 @@ body {
   padding-top: 16px;
 }
 
-p, td, textarea, th {
+body, p, td, textarea, th {
   font-family:"Lucida Grande","Trebuchet MS",Verdana,Helvetica,Arial,sans-serif;
   font-size: 14px;
 }
@@ -73,13 +73,21 @@ textarea {
 }
 
 table { border-collapse: collapse; margin: 8px 0; width: 640px; }
-td, th { font-size: 13px; padding: 8px 4px; margin: 0; line-height: 20px; }
+
+td, th {
+  padding: 8px 4px;
+  margin: 0;
+  line-height: 20px;
+}
+
 th {
   font-weight: bold;
 }
+
 th.up_down {
   width: 32px;
 }
+
 td {
   border-top: 1px solid #bbb;
 }
