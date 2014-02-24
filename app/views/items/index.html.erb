@@ -12,7 +12,7 @@
 
 <h2><%= category.name %></h2>
 
-<table>
+<table class="pure-table">
   <thead>
     <tr>
       <th class="up_down">&nbsp;</th>
@@ -34,7 +34,7 @@
     <% end %></td>
     <td><%= link_to h(item.name), edit_item_path(item) %></td>
     <td>£<%= h item.price_in_pounds %></td>
-    <td class="delete_button">&nbsp;<%= link_to image_tag('delete.png', :alt=>'Delete'), item, :confirm => 'Are you sure?', :method => :delete, :class => 'button' %></td>
+    <td class="actions"><%= delete_button(item) %></td>
   </tr>
 <% end %>
   </tbody>
