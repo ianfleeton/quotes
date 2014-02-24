@@ -1,0 +1,8 @@
+<% cache(quote) do -%>
+<tr>
+  <td><%= link_to quote.title, action: 'preview', id: quote %></td>
+  <td><%= quote.to %></td>
+  <td><%= format_date(quote.sent_at) %></td>
+  <td class="actions"><%= delete_button(quote) %></td>
+</tr>
+<% end -%>
