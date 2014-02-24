@@ -26,4 +26,13 @@ module ApplicationHelper
   def clear
     content_tag('p', '&nbsp;', {:class => 'clear'})
   end
+
+  def delete_button(object)
+    link_to 'Delete'.html_safe,
+    object,
+    data: { confirm: 'Are you sure?' },
+    method: :delete,
+    class: 'pure-button button-danger',
+    title: "Delete #{object}"
+  end
 end

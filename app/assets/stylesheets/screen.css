@@ -83,9 +83,11 @@ th.up_down {
 td {
   border-top: 1px solid #bbb;
 }
-td.delete_button {
+
+td.actions {
   text-align: right;
 }
+
 textarea#profile_html {
   font-family: 'Anonymous Pro', 'Monaco', 'Courier', monospace;
   font-size: 13px;
@@ -134,4 +136,14 @@ input.price {
 #sign_out {
   font-size: 12px;
   text-align: right;
+}
+
+.button-danger {
+  color: white;
+  border-radius: 4px;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+.button-danger {
+  background: rgb(202, 60, 60);
 }
