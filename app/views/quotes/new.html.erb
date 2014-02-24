@@ -3,7 +3,7 @@
 <%= form_tag({action: 'create'}, {class: 'pure-form'}) do %>
   <p>
     <label for="title">Title:</label><br />
-    <input type="text" id="title" name="title" value="<%= h @current_profile.subject %>" />
+    <input type="text" id="title" name="title" value="<%= @current_profile.subject %>">
   </p>
   <p>
     <label for="reference">Reference:</label><br />
@@ -19,14 +19,14 @@
   </p>
   <p>
     <label for="introduction">Introduction:</label><br />
-    <textarea id="introduction" name="introduction"><%= h @current_profile.intro %></textarea>
+    <textarea id="introduction" name="introduction"><%= @current_profile.intro %></textarea>
   </p>
   <h2>Items to Include</h2>
   <% @current_profile.categories.each do |category| %>
-  <h3><%= h category.name %></h3>
+  <h3><%= category.name %></h3>
   <% category.items.each do |item| %>
   <p class="item_list">
-    <input type="text" class="qty" name="items[<%= item.id %>]" value="0" /> &times; <%= h item.name %> (£<%= item.price_in_pounds %>)
+    <input type="text" class="qty" name="items[<%= item.id %>]" value="0"> &times; <%= item.name %> (£<%= item.price_in_pounds %>)
   </p>
   <% end %>
   <% end %>

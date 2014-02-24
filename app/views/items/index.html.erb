@@ -33,7 +33,7 @@
     <%= link_to image_tag('down.png', :alt=>'Down'), {:action => 'down', :id => item}, :class=>'button' %>
     <% end %></td>
     <td><%= link_to h(item.name), edit_item_path(item) %></td>
-    <td>£<%= h item.price_in_pounds %></td>
+    <td>£<%= item.price_in_pounds %></td>
     <td class="actions"><%= delete_button(item) %></td>
   </tr>
 <% end %>

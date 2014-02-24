@@ -1,5 +1,5 @@
 <h1><% if admin? %><%= link_to "Users", :action => "index" %>
-	&rarr; <% end %><%= h @user.name %>&#8217;s Account <%= image_for_admin_status(@user) %></h1>
+	&rarr; <% end %><%= @user.name %>&#8217;s Account <%= image_for_admin_status(@user) %></h1>
 
 <%= flash_notice %>
 
