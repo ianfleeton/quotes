@@ -3,4 +3,8 @@ class Category < ActiveRecord::Base
   acts_as_list scope: :profile
 
   validates :name, presence: true
+
+  def to_s
+    name
+  end
 end
