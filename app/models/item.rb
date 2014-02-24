@@ -1,6 +1,6 @@
 class Item < ActiveRecord::Base
   belongs_to :profile
-  belongs_to :category
+  belongs_to :category, touch: true
   acts_as_list :scope => :category
 
   validates :name, presence: true

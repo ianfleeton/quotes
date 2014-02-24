@@ -1,0 +1,18 @@
+<% cache(category) do -%>
+<h2><%= category.name %></h2>
+
+<table class="pure-table">
+  <thead>
+    <tr>
+      <th class="up_down">&nbsp;</th>
+      <th class="up_down">&nbsp;</th>
+      <th>Name</th>
+      <th>Price</th>
+      <th>&nbsp;</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render partial: 'item', collection: category.items %>
+  </tbody>
+</table>
+<% end -%>

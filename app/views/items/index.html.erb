@@ -8,36 +8,4 @@
 <p><%= link_to 'New item', new_item_path, class: 'pure-button pure-button-primary' %></p>
 <% end %>
 
-<% @current_profile.categories.each do |category| %>
-
-<h2><%= category.name %></h2>
-
-<table class="pure-table">
-  <thead>
-    <tr>
-      <th class="up_down">&nbsp;</th>
-      <th class="up_down">&nbsp;</th>
-      <th>Name</th>
-      <th>Price</th>
-      <th>&nbsp;</th>
-    </tr>
-  </thead>
-  <tbody>
-
-<% category.items.each do |item| %>
-  <tr>
-    <td><% unless item.first? %>&nbsp;
-    <%= link_to image_tag('up.png', :alt=>'Up'), {:action => 'up', :id => item}, :class=>'button' %>
-    <% end %></td>
-    <td><% unless item.last? %>&nbsp;
-    <%= link_to image_tag('down.png', :alt=>'Down'), {:action => 'down', :id => item}, :class=>'button' %>
-    <% end %></td>
-    <td><%= link_to h(item.name), edit_item_path(item) %></td>
-    <td>£<%= item.price_in_pounds %></td>
-    <td class="actions"><%= delete_button(item) %></td>
-  </tr>
-<% end %>
-  </tbody>
-</table>
-
-<% end %>
+<%= render partial: 'category', collection: @current_profile.categories %>
