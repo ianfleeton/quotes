@@ -1,0 +1,8 @@
+<% cache(category) do -%>
+<tr>
+  <td><% unless category.first? %><%= up_button(category) %><% end %></td>
+  <td><% unless category.last? %><%= down_button(category) %><% end %></td>
+  <td><%= link_to category.name, edit_category_path(category) %></td>
+  <td class="actions"><%= delete_button(category) %></td>
+</tr>
+<% end -%>

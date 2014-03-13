@@ -35,4 +35,12 @@ module ApplicationHelper
     class: 'pure-button button-danger',
     title: "Delete #{object}"
   end
+
+  def down_button(obj)
+    link_to '&darr;'.html_safe, {action: 'down', id: obj}, class:'pure-button'
+  end
+
+  def up_button(obj)
+    link_to '&uarr;'.html_safe, {action: 'up', id: obj}, class:'pure-button'
+  end
 end
