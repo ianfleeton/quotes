@@ -22,7 +22,7 @@
     <%= flash_notice %>
     <%= yield %>
     <% if @current_user %>
-      <p id="sign_out"><%= link_to 'Sign out', logout_path %></p>
+      <p id="sign_out"><%= link_to 'Sign out', logout_path, method: :post %></p>
     <% end %>
   </div>
 </div><!--#layout-->
