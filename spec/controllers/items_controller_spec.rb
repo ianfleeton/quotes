@@ -1,15 +1,15 @@
-require 'spec_helper'
+require 'rails_helper'
 
-describe ItemsController do
-  let(:current_profile) { mock_model(Profile).as_null_object }
+RSpec.describe ItemsController, type: :controller do
+  let(:current_profile) { double(Profile).as_null_object }
 
   before do
-    Profile.stub(:find_by_domain).and_return(current_profile)
+    allow(Profile).to receive(:find_by_domain).and_return(current_profile)
   end
 
   describe 'PATCH update' do
     context 'as admin' do
-      before { controller.stub(:admin?).and_return(true) }
+      before { allow(controller).to receive(:admin?).and_return(true) }
 
       it 'updates the given item' do
         item = Item.create!(name: 'Widget', information: '')

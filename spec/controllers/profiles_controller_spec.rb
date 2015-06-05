@@ -1,11 +1,11 @@
-require 'spec_helper'
+require 'rails_helper'
 
-describe ProfilesController do
-  let(:current_profile) { mock_model(Profile).as_null_object }
+RSpec.describe ProfilesController, type: :controller do
+  let(:current_profile) { double(Profile).as_null_object }
 
   before do
-    Profile.stub(:find_by_domain).and_return(current_profile)
-    controller.stub(:admin?).and_return(true)
+    allow(Profile).to receive(:find_by_domain).and_return(current_profile)
+    allow(controller).to receive(:admin?).and_return(true)
   end
 
   describe 'GET index' do

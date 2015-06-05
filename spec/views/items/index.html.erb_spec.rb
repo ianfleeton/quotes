@@ -1,6 +1,6 @@
-require 'spec_helper'
+require 'rails_helper'
 
-describe 'items/index.html.erb' do
+RSpec.describe 'items/index.html.erb', type: :view do
   let(:current_profile) { Profile.new }
 
   before do

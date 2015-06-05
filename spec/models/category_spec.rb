@@ -1,6 +1,6 @@
-require 'spec_helper'
+require 'rails_helper'
 
-describe Category do
+RSpec.describe Category, type: :model do
   it { should validate_presence_of(:name) }
 
   describe '#to_s' do

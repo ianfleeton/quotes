@@ -1,6 +1,6 @@
-require 'spec_helper'
+require 'rails_helper'
 
-describe ApplicationHelper do
+RSpec.describe ApplicationHelper, type: :helper do
   describe '#delete_button' do
     let(:category) { Category.create(name: SecureRandom.hex) }
     let(:html)     { delete_button(category) }
