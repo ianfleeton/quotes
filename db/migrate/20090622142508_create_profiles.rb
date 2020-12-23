@@ -1,4 +1,4 @@
-class CreateProfiles < ActiveRecord::Migration
+class CreateProfiles < ActiveRecord::Migration[4.2]
   def self.up
     create_table :profiles do |t|
       t.string :name, :default => '', :null => false

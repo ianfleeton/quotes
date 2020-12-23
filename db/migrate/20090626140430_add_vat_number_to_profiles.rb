@@ -1,4 +1,4 @@
-class AddVatNumberToProfiles < ActiveRecord::Migration
+class AddVatNumberToProfiles < ActiveRecord::Migration[4.2]
   def self.up
     add_column :profiles, :vat_number, :string, :default => '', :null => false
   end

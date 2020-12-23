@@ -1,4 +1,4 @@
-class AddCategoryIdToItems < ActiveRecord::Migration
+class AddCategoryIdToItems < ActiveRecord::Migration[4.2]
   def self.up
     add_column :items, :category_id, :integer, :default => 0, :null => false
     add_index :items, :category_id

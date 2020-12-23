@@ -1,4 +1,4 @@
-class AddProfileIdToQuotes < ActiveRecord::Migration
+class AddProfileIdToQuotes < ActiveRecord::Migration[4.2]
   def self.up
     add_column :quotes, :profile_id, :integer
     add_index :quotes, :profile_id

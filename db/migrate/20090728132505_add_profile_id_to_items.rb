@@ -1,4 +1,4 @@
-class AddProfileIdToItems < ActiveRecord::Migration
+class AddProfileIdToItems < ActiveRecord::Migration[4.2]
   def self.up
     add_column :items, :profile_id, :integer
     add_index :items, :profile_id
