@@ -5,8 +5,6 @@ source 'https://rubygems.org'
 gem "rails", "5.2.4.4"
 gem 'acts_as_list'
 
-gem 'haml'
-
 # Use mysql as the database for Active Record
 gem 'mysql2'
 

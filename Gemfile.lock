@@ -82,9 +82,6 @@ GEM
       guard (~> 2.1)
       guard-compat (~> 1.1)
       rspec (>= 2.99.0, < 4.0)
-    haml (5.2.1)
-      temple (>= 0.8.0)
-      tilt
     i18n (1.8.5)
       concurrent-ruby (~> 1.0)
     jbuilder (2.10.1)
@@ -201,7 +198,6 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
-    temple (0.8.2)
     thor (1.0.1)
     thread_safe (0.3.6)
     tilt (2.0.10)
@@ -231,7 +227,6 @@ DEPENDENCIES
   byebug
   capybara
   guard-rspec
-  haml
   jbuilder (~> 2.0)
   jquery-rails
   mysql2

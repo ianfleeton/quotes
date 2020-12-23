@@ -1,0 +1,22 @@
+<h1>Profiles</h1>
+<p>
+  <%= link_to "Add profile", new_profile_path %>
+</p>
+<table>
+  <thead>
+    <tr>
+      <th>Profile Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @profiles.each do |profile| %>
+      <tr>
+        <td><%= link_to h(profile.name), edit_profile_path(profile) %></td>
+        <td class="delete_button">
+          &nbsp;
+          <%= link_to image_tag("delete.png", alt: "Delete"), profile, data: {confirm: "Are you sure?"}, method: :delete %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
