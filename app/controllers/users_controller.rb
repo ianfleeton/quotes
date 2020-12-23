@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-  before_filter :find_user, :except => [:index, :new, :create, :forgot_password, :forgot_password_send]
-  before_filter :admin_required, :only => [:index, :destroy]
+  before_action :find_user, :except => [:index, :new, :create, :forgot_password, :forgot_password_send]
+  before_action :admin_required, :only => [:index, :destroy]
 
   def index
     @users = User.order("name").all

@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_filter :setup_nav, :admin_required
+  before_action :setup_nav, :admin_required
 
   def index
   end

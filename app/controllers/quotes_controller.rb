@@ -1,7 +1,7 @@
 # coding: utf-8
 class QuotesController < ApplicationController
-  before_filter :setup_nav, :admin_required
-  before_filter :find_quote, only: [:preview, :send_quote, :destroy]
+  before_action :setup_nav, :admin_required
+  before_action :find_quote, only: [:preview, :send_quote, :destroy]
 
   VAT_RATE = 20
   

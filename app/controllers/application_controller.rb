@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
-  before_filter :set_timezone, :initialize_user, :initialize_profile
+  before_action :set_timezone, :initialize_user, :initialize_profile
 
   # make these available as ActionView helper methods.
   helper_method :logged_in?, :admin?

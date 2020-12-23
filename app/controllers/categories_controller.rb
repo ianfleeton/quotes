@@ -1,6 +1,6 @@
 class CategoriesController < ApplicationController
-  before_filter :setup_nav, :admin_required
-  before_filter :find_category, :only => [:edit, :update, :destroy, :up, :down]
+  before_action :setup_nav, :admin_required
+  before_action :find_category, :only => [:edit, :update, :destroy, :up, :down]
 
   def index
   end
