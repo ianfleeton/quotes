@@ -133,6 +133,8 @@ GEM
       coderay (~> 1.1)
       method_source (~> 1.0)
     public_suffix (4.0.6)
+    puma (5.1.1)
+      nio4r (~> 2.0)
     rack (2.2.3)
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
@@ -222,11 +224,11 @@ GEM
     turbolinks-source (5.2.0)
     tzinfo (2.0.4)
       concurrent-ruby (~> 1.0)
-    web-console (3.7.0)
-      actionview (>= 5.0)
-      activemodel (>= 5.0)
+    web-console (4.1.0)
+      actionview (>= 6.0.0)
+      activemodel (>= 6.0.0)
       bindex (>= 0.4.0)
-      railties (>= 5.0)
+      railties (>= 6.0.0)
     websocket-driver (0.7.3)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
@@ -245,6 +247,7 @@ DEPENDENCIES
   guard-rspec
   jbuilder (~> 2.0)
   mysql2
+  puma (~> 5.0)
   rails (~> 6.1.0)
   rspec-rails
   sass-rails (~> 5.0)
@@ -253,7 +256,7 @@ DEPENDENCIES
   spring
   spring-commands-rspec
   turbolinks
-  web-console (~> 3.0)
+  web-console (>= 4.1.0)
 
 BUNDLED WITH
    2.1.4
