@@ -8,14 +8,14 @@ class ProfilesController < ApplicationController
   def new
     @profile = Profile.new
   end
-  
+
   def edit
     @profile = Profile.find(params[:id])
   end
-  
+
   def create
     @profile = Profile.new(profile_params)
-    
+
     if @profile.save
       flash[:notice] = 'Profile created.'
       category = Category.new(:name => 'Miscellaneous')
@@ -26,11 +26,11 @@ class ProfilesController < ApplicationController
       render :action => 'new'
     end
   end
-  
+
   def update
     @profile = Profile.find(params[:id])
 
-    if @profile.update_attributes(profile_params)
+    if @profile.update(profile_params)
       flash[:notice] = 'Profile saved.'
       redirect_to profiles_path
     else

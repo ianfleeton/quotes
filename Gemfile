@@ -24,11 +24,6 @@ gem "bootsnap", ">= 1.4.2", require: false
 # bundle exec rake doc:rails generates the API under doc/api.
 gem "sdoc", "~> 1.1"
 
-group :development do
-  gem 'spring-commands-rspec'
-  gem 'guard-rspec', require: false
-end
-
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -43,6 +38,12 @@ group :development, :test do
 
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+
+  # Fixtures
+  gem "factory_bot_rails"
+
+  # Automatically & intelligently launch specs when files are modified
+  gem "guard-rspec", "~> 4.7.3", require: false
 end
 
 group :development do
