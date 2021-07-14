@@ -15,10 +15,6 @@
 *.doc
 html_tmp
 
-# Ignore sensitive files.
-database.yml
-secrets.yml
-
 # Ignore dompdf.
 /pdf/dompdf-0.5.1
 
@@ -29,3 +25,10 @@ secrets.yml
 /log/*
 !/log/.keep
 /tmp
+
+/public/packs
+/public/packs-test
+/node_modules
+/yarn-error.log
+yarn-debug.log*
+.yarn-integrity

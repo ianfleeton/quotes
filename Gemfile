@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem "rails", "~> 6.1.0"
+gem "rails", "~> 6.1.4"
 gem 'acts_as_list'
 
 # Use mysql as the database for Active Record
@@ -12,6 +12,8 @@ gem "puma", "~> 5.3"
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
+# Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
+gem "webpacker", "~> 5.0"
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
